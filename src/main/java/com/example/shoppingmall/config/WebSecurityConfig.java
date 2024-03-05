@@ -34,18 +34,36 @@ public class WebSecurityConfig {
                         .permitAll()
 
                         .requestMatchers("/users/updateUser")
-                        .hasRole("ROME_INACTIVE")
+                        .hasRole("INACTIVE")
 
                         .requestMatchers(
-                                "users/updateBusiness/status"
+                                "users/updateBusiness/status",
+                                "shops/readList",
+                                "shops/{shopId}/update"
                         )
-                        .hasRole("ROLE_ADMIN")
+                        .hasRole("ADMIN")
 
                         .requestMatchers(
                                 "/users/updateBusiness"
                         )
-                        .hasAnyRole("ROLE_USER", "ROLE_SELLER", "ROLE_OFFER")
+                        .hasAnyRole("USER", "SELLER", "OFFER")
+                        .requestMatchers(
+                                "/items/{itemId}",
+                                "/items/create"
+                        )
+                        .hasAnyRole( "OFFER", "USER", "BUSINESS","ADMIN")
 
+                        .requestMatchers(
+                                "/items/{itemId}",
+                                "/items/{itemId}/update",
+                                "/items/{itemId}/delete"
+                        )
+                        .hasRole("SELLER")
+                        .requestMatchers(
+                                "/shops/{shopId}/update",
+                                "/shops/createShop"
+                        )
+                        .hasRole("BUSINESS")
                         .anyRequest()
                         .authenticated()
 

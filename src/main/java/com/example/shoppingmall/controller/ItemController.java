@@ -17,14 +17,16 @@ public class ItemController {
 
     @PostMapping("/create")
     public ItemDto create(
-            @RequestBody ItemDto dto
+            @RequestBody
+            ItemDto dto
     ) {
         return service.create(dto);
     }
 
     @GetMapping("/{itemId}")
     public ItemDto readOne(
-            @PathVariable("itemId") Long itemId
+            @PathVariable("itemId")
+            Long itemId
     ) {
         return service.readOne(itemId);
     }
@@ -36,15 +38,18 @@ public class ItemController {
 
     @PutMapping("/{itemId}/update")
     public ItemDto update(
-            @PathVariable("itemId") Long itemId,
-            @RequestBody ItemDto dto
+            @PathVariable("itemId")
+            Long itemId,
+            @RequestBody
+            ItemDto dto
     ) {
         return service.update(itemId, dto);
     }
 
     @DeleteMapping("/{itemId}/delete")
     public void delete(
-            @PathVariable("itemId") Long itemId
+            @PathVariable("itemId")
+            Long itemId
     ) {
         service.delete(itemId);
     }

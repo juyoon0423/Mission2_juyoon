@@ -95,7 +95,7 @@ public class UserService {
         }
     }
 
-    // 일반 -> 사용자
+    // 일반 -> 비즈니스
     public void updateBusinessUser(String username, UserDetails user){
         Optional<UserEntity> optionalUser = userRepository.findByUsername(username);
 

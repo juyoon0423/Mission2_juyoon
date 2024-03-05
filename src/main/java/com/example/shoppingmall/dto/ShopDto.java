@@ -1,5 +1,6 @@
 package com.example.shoppingmall.dto;
 
+import com.example.shoppingmall.entity.Enum.Category;
 import com.example.shoppingmall.entity.Shop;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class ShopDto {
     private String shopResponse;
     private String reason;
     private String deleteReason;
+    private Category category;
 
     public boolean condition =
             name != null && introduction != null;

@@ -1,5 +1,6 @@
 package com.example.shoppingmall.entity;
 
+import com.example.shoppingmall.entity.Enum.Category;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,6 +25,8 @@ public class Shop {
     private String shopStatus;
     @Setter
     private String shopResponse;
+    @Setter
+    private Category category;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
